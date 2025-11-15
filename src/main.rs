@@ -1,3 +1,4 @@
+mod board;
 mod marker;
 
 fn main()
@@ -6,27 +7,8 @@ fn main()
     //play(&board);
     board[0] = -1;
     board[5] = 1;
-    print_board(& board);
+    board::print_board(& board);
     //check_board(&board);
-}
-
-fn marker(index: i8) -> char
-{
-    let x_o = "O X";
-    x_o.chars().nth((index+1) as usize).unwrap()
-}
-
-fn print_board(board: &[i8])
-{
-    println!("Tic_XO Current Board:");
-    for ct in 0..9
-    {
-        print!("{}", marker(board[ct]));
-        if (ct+1) % 3 == 0
-        {
-            println!();
-        }
-    }
 }
 
 fn check_board(board: &[i8])// -> bool
