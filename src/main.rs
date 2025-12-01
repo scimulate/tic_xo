@@ -1,5 +1,8 @@
 mod board;
 mod marker;
+mod rc_flatten;
+
+use rc_flatten::rc_flatten;
 
 fn main()
 {
@@ -7,7 +10,17 @@ fn main()
     //play(&board);
     board[0] = -1;
     board[5] = 1;
-    board::print_board(& board);
+    //board::print_board(& board);
+    board::check_board(& board);
+
+    for row in 0..3
+    {
+        for col in 0..3
+        {
+            println!("{}", rc_flatten(row, col));
+        }
+    }
+
     //check_board(&board);
 }
 

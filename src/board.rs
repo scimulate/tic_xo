@@ -7,17 +7,17 @@ pub fn check_board(board: &[i8]) -> bool
     // no winner yet. If the board is full and the game is a draw, have that 
 
     let mut game_won = false;
+    let mut total = 0;
 
     // Check horizontals
-    //let mut ct = 0;
-    for ct in 1..=10
+    for ct in 1..=3
     {
-        println!("{}", ct);
+        //println!("{}", ct);
     }
     // Check verticals
     // Check diagonals
 
-    game_won
+    true
 }
 
 pub fn print_board(board: &[i8])
