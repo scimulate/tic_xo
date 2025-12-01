@@ -1,4 +1,5 @@
 use crate::marker;
+use crate::rc_flatten;
 
 pub fn check_board(board: &[i8]) -> bool
 {
@@ -10,6 +11,9 @@ pub fn check_board(board: &[i8]) -> bool
     let mut total = 0;
 
     // Check horizontals
+    //total = board[rc_flatten(0,0)];
+    
+
     for ct in 1..=3
     {
         //println!("{}", ct);
