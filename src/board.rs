@@ -12,12 +12,16 @@ pub fn check_board(board: &[i8]) -> bool
 
     // Check horizontals
     //total = board[rc_flatten(0,0)];
-    
 
     for ct in 1..=3
     {
-        //println!("{}", ct);
+        board[ct];
+        //i8::try_from(ct).ok();
+        //rc_flatten(0, i8::try_from(ct).unwrap());// .ok());
+        board(rc_flatten(0, i8::try_from(ct).unwrap())];
+        //total += rc_flatten(0, ct);
     }
+    println!("{}", total);
     // Check verticals
     // Check diagonals
 
