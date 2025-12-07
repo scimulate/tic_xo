@@ -16,6 +16,8 @@ fn main()
     }
 
     board[0] = -1;
+    board[1] = -1;
+    board[2] = -1;
     board[5] = 1;
     //board::print_board(& board);
     board::check_board(& board);
