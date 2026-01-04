@@ -64,7 +64,16 @@ pub fn check_board(board: &[i8]) -> bool
         }
     }
 
-    
+    total = 0;
+    for ct in 0..9
+    {
+        total += board[ct].abs();
+    }
+    if total == 9
+    {
+        println!("Broken");
+        //game_won = true;
+    }
 
     game_won
 }

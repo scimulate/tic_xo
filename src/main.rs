@@ -8,43 +8,47 @@ use rc_flatten::rc_flatten;
 fn main()
 {
     let mut board = [0i8; 9];
-    //play(&board);
+    let mut player = 1;
+
+    let mut moves = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    
+    /*
+    let mut ct = 0;
+    while !board::check_board(& board)
+    {
+        board[ct] = player;
+        ct += 1;
+        player *= -1;
+        println!("Player {}", marker::marker(player));
+    }
+    */
+
+    /*
+    play();
 
     for ct in -1..=1
     {
         println!("{}", marker(ct));
     }
 
-    board[0] = -1;
-    board[1] = -1;
-    board[2] = -1;
+    board[2] = 1;
+    board[4] = 1;
+    board[6] = 1;
     board[5] = 1;
     //board::print_board(& board);
     board::check_board(& board);
 
-    /*
-    for row in 0..3
-    {
-        for col in 0..3
-        {
-            println!("{}", rc_flatten(row, col));
-        }
-    }
-    */
-
     //check_board(&board);
+    */
 }
-
-/*
-
 
 fn play()
 {
-    //printBoard();
+    //print_board();
 }
 
-fn play_headless()
+fn play_headless(board: &[i8], player: i8)
 {
-
+    //print_board();
 }
-*/
