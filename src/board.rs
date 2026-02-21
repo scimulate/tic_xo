@@ -81,12 +81,10 @@ pub fn check_board(board: &[i8]) -> bool
 pub fn print_board(board: &[i8])
 {
     println!("Tic_XO Current Board:");
-    for ct in 0..9
+    for ct in 0..3
     {
-        print!("{}", marker::marker(board[ct]));
-        if (ct+1) % 3 == 0
-        {
-            println!();
-        }
+        println!("{} {} {}", marker::marker(board[3*ct]),
+                             marker::marker(board[3*ct+1]),
+                             marker::marker(board[3*ct+2]));
     }
 }
