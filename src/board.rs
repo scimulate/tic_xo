@@ -10,32 +10,27 @@ pub fn check_board(board: &[i8]) -> bool
     let mut game_won = false;
     let mut total = 0;
 
-    // Check horizontals
-    for row in 0..3
+    // Check Horizontals & Verticals
+    for flipped in [true, false]
     {
-        total = 0;
-        for col in 0..3
+        for dim0 in 0..3
         {
-            total += board[rc_flatten(row, col)];
-            if total.abs() == 3
+            total = 0;
+            for dim1 in 0..3
             {
-                println!("Game won, row {}, player {}", row, marker::marker(total/3));
-                game_won = true;
+                if flipped
+                {
+                    total += board[rc_flatten(dim0, dim1)];
+                }
+                else
+                {
+                    total += board[rc_flatten(dim1, dim0)];
+                }
             }
-        }
-    }
-
-    // Check verticals
-    for col in 0..3
-    {
-        total = 0;
-        for row in 0..3
-        {
-            total += board[rc_flatten(row, col)];
             if total.abs() == 3
             {
-                println!("Game won, col {}, player {}", col, marker::marker(total/3));
-                game_won = true;
+                println!("Game won, player {}", marker::marker(total/3));
+                return true;
             }
         }
     }
@@ -45,37 +40,27 @@ pub fn check_board(board: &[i8]) -> bool
     for ct in 0..3
     {
         total += board[rc_flatten(ct, ct)];
-        if total.abs() == 3
-        {
-            println!("Game won, diag 1, player {}", marker::marker(total/3));
-            game_won = true;
-        }
+    }
+    if total.abs() == 3
+    {
+        println!("Game won, player {}", marker::marker(total/3));
+        return true;
     }
 
     // Check diagonals (positive slope)
     total = 0;
     for ct in 0..3
     {
-        total += board[rc_flatten(ct, 2-ct)];
-        if total.abs() == 3
-        {
-            println!("Game won, diag 1, player {}", marker::marker(total/3));
-            game_won = true;
-        }
+        total += board[2*ct];
+    }
+    if total.abs() == 3
+    {
+        println!("Game won, player {}", marker::marker(total/3));
+        return true;
     }
 
-    total = 0;
-    for ct in 0..9
-    {
-        total += board[ct].abs();
-    }
-    if total == 9
-    {
-        println!("Broken");
-        //game_won = true;
-    }
-
-    game_won
+    println!("No winner");
+    return false;
 }
 
 pub fn print_board(board: &[i8])
