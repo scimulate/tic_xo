@@ -8,6 +8,6 @@ pub fn marker(index: i8) -> char
     this function.
     */
     
-    let x_o = "O X";
+    let x_o = "O-X";
     x_o.chars().nth((index+1) as usize).unwrap()
 }

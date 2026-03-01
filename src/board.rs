@@ -7,8 +7,7 @@ pub fn check_board(board: &[i8]) -> bool
     // any row, column, or diagonal adds to |3|, there is a winner. Otherwise,
     // no winner yet.
 
-    let mut game_won = false;
-    let mut total = 0;
+    let mut total;
 
     // Check Horizontals & Verticals
     for flipped in [true, false]
@@ -59,7 +58,6 @@ pub fn check_board(board: &[i8]) -> bool
         return true;
     }
 
-    println!("No winner");
     return false;
 }
 
