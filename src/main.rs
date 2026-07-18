@@ -10,7 +10,14 @@ fn main()
 {
     let mut board = [0i8; 9];
     let mut player = -1;
+    let mut row = 0;
+    let mut col = 0;
+    let mut ct = 0;
+    let mut input = String::new();
+    let mut parts: Vec<&str>;// = input.split(',').collect();
 
+    while !board::check_board(& board) && ct < 9
+    {
     /*
     let mut moves = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -21,10 +28,14 @@ fn main()
     board[6] = 1;
     */
 
-    let mut ct = 0;
-    while !board::check_board(& board) && ct < 9
-    {
         player *= -1;
+        input = String::new();
+        println!("Player {}, [row,col]: ", marker(player));
+        io::stdin().read_line(&mut input).expect("Failed to read line");
+        parts = input.split(',').collect();
+        println!("You typed: {}", input.trim());
+        
+        println!("Row: {}, Col: ", parts.get(0).and_then(|s| s.trim().parse::<i32>().ok()));
 
         ct += 1;
     }
