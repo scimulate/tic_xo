@@ -50,7 +50,7 @@ pub fn check_board(board: &[i8]) -> bool
     total = 0;
     for ct in 0..3
     {
-        total += board[2*ct];
+        total += board[rc_flatten(ct, 2-ct)];
     }
     if total.abs() == 3
     {
